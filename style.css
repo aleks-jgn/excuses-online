@@ -1,0 +1,314 @@
+/* ----- RESET & БАЗОВЫЕ ПЕРЕМЕННЫЕ ----- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: background-color 0.25s ease, color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+body {
+  font-family: system-ui, 'Segoe UI', 'Inter', -apple-system, BlinkMacSystemFont, 'Roboto', sans-serif;
+  line-height: 1.5;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+/* ТЕМНАЯ ТЕМА (по умолчанию) */
+body.dark-theme {
+  --bg-page: #0b1120;
+  --bg-card: #1e293b;
+  --surface-hover: #334155;
+  --text-primary: #f1f5f9;
+  --text-secondary: #cbd5e1;
+  --border-light: #334155;
+  --accent: #3b82f6;
+  --accent-hover: #2563eb;
+  --btn-secondary-bg: #2d3a4e;
+  --btn-secondary-hover: #3b4a60;
+  --placeholder-bg: rgba(30, 41, 59, 0.7);
+  --shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* СВЕТЛАЯ ТЕМА */
+body.light-theme {
+  --bg-page: #f1f5f9;
+  --bg-card: #ffffff;
+  --surface-hover: #e2e8f0;
+  --text-primary: #0f172a;
+  --text-secondary: #334155;
+  --border-light: #cbd5e1;
+  --accent: #2563eb;
+  --accent-hover: #1d4ed8;
+  --btn-secondary-bg: #e2e8f0;
+  --btn-secondary-hover: #cbd5e1;
+  --placeholder-bg: #f8fafc;
+  --shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+body {
+  background-color: var(--bg-page);
+  color: var(--text-primary);
+}
+
+.app-wrapper {
+  max-width: 880px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* HEADER */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--bg-card);
+  padding: 0.9rem 1.8rem;
+  border-radius: 2rem;
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(2px);
+}
+
+.logo {
+  font-size: 1.6rem;
+  font-weight: 600;
+  letter-spacing: -0.3px;
+  background: linear-gradient(135deg, var(--accent), #8b5cf6);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.theme-toggle {
+  background: var(--surface-hover);
+  border: none;
+  font-size: 1.4rem;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-primary);
+  transition: transform 0.2s, background 0.2s;
+}
+
+.theme-toggle:hover {
+  transform: scale(1.03);
+  background: var(--accent);
+  color: white;
+}
+
+.header-placeholder {
+  width: 42px;
+}
+
+/* MAIN */
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.card {
+  background: var(--bg-card);
+  border-radius: 1.8rem;
+  padding: 1.8rem 2rem;
+  box-shadow: var(--shadow);
+}
+
+.control-card {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.form-label {
+  font-weight: 500;
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+}
+
+.situation-select {
+  background-color: var(--surface-hover);
+  border: 1px solid var(--border-light);
+  padding: 0.9rem 1rem;
+  border-radius: 1.2rem;
+  font-size: 1rem;
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.situation-select:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px rgba(59,130,246,0.3);
+}
+
+.btn {
+  border: none;
+  font-weight: 600;
+  padding: 0.85rem 1.5rem;
+  border-radius: 2rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background: var(--accent);
+  color: white;
+}
+
+.btn-primary {
+  background: var(--accent);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: var(--accent-hover);
+  transform: translateY(-2px);
+}
+
+.btn-primary:disabled,
+.btn-secondary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.btn-secondary {
+  background: var(--btn-secondary-bg);
+  color: var(--text-primary);
+  border: 1px solid var(--border-light);
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background: var(--btn-secondary-hover);
+  transform: translateY(-2px);
+}
+
+/* контейнер с отмазками */
+.excuses-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.excuse-card {
+  background: var(--bg-card);
+  border-radius: 1.5rem;
+  padding: 1.2rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  border-left: 5px solid var(--accent);
+  animation: fadeSlideUp 0.3s ease-out;
+}
+
+@keyframes fadeSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.excuse-content {
+  flex: 1;
+}
+
+.excuse-text {
+  font-size: 1.05rem;
+  font-weight: 500;
+  margin-bottom: 0.4rem;
+  color: var(--text-primary);
+}
+
+.excuse-rating {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.star-filled {
+  color: #fbbf24;
+}
+
+.copy-btn {
+  background: var(--surface-hover);
+  border: none;
+  padding: 0.6rem 1rem;
+  border-radius: 2rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-primary);
+  transition: all 0.2s;
+}
+
+.copy-btn:hover {
+  background: var(--accent);
+  color: white;
+}
+
+.placeholder-message {
+  background: var(--placeholder-bg);
+  border-radius: 2rem;
+  padding: 2rem;
+  text-align: center;
+  color: var(--text-secondary);
+  font-style: italic;
+  backdrop-filter: blur(4px);
+}
+
+.reset-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 0.5rem;
+}
+
+/* футер */
+.footer {
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-light);
+  margin-top: 0.5rem;
+}
+
+/* адаптив */
+@media (max-width: 640px) {
+  body {
+    padding: 1rem;
+  }
+  .card {
+    padding: 1.2rem;
+  }
+  .excuse-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .copy-btn {
+    align-self: flex-end;
+  }
+  .logo {
+    font-size: 1.2rem;
+  }
+}

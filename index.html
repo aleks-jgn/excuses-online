@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Генератор отмазок | Оправдайся красиво</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Font Awesome 6 (free icons) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+</head>
+<body class="dark-theme">
+  <div class="app-wrapper">
+    <header class="header">
+      <button id="themeToggle" class="theme-toggle" aria-label="Переключить тему">
+        <i class="fas fa-moon"></i>
+      </button>
+      <h1 class="logo">Генератор отмазок</h1>
+      <div class="header-placeholder"></div> <!-- для баланса flex -->
+    </header>
+
+    <main class="main">
+      <div class="card control-card">
+        <label for="situationSelect" class="form-label">Выберите Вашу ситуацию:</label>
+        <select id="situationSelect" class="situation-select">
+          <option value="" disabled selected>— Не выбрано —</option>
+          <option value="Опоздал на работу">Опоздал на работу</option>
+          <option value="Не сделал домашку">Не сделал домашку</option>
+          <option value="Забыл про день рождения">Забыл про день рождения</option>
+        </select>
+        <button id="generateBtn" class="btn btn-primary" disabled>Подобрать отмазку</button>
+      </div>
+
+      <div id="excusesContainer" class="excuses-container">
+        <!-- динамически подставленные отмазки -->
+        <div class="placeholder-message">✨ Выберите ситуацию и нажмите «Подобрать отмазку»</div>
+      </div>
+
+      <div class="reset-wrapper">
+        <button id="resetBtn" class="btn btn-secondary" disabled>Сбросить</button>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <p>© 2026 Генератор отмазок • Все оправдания вымышлены, но вдруг сработают</p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
