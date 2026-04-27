@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
   <title>Генератор отмазок | Оправдайся красиво</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.min.css">
   <!-- Font Awesome 6 (free icons) -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <!-- jQuery -->
@@ -12,6 +12,10 @@
 </head>
 <body class="dark-theme">
   <div class="app-wrapper">
+
+    <div class="decor-shape decor-top" aria-hidden="true">
+      <div class="blob"></div>
+    </div>
     <header class="header">
       <button id="themeToggle" class="theme-toggle" aria-label="Переключить тему">
         <i class="fas fa-moon"></i>
@@ -28,6 +32,10 @@
           <option value="Опоздал на работу">Опоздал на работу</option>
           <option value="Не сделал домашку">Не сделал домашку</option>
           <option value="Забыл про день рождения">Забыл про день рождения</option>
+          <option value="Не позвонил другу/подруге">Не позвонил другу/подруге</option>
+          <option value="Не отвечал на сообщения">Не отвечал на сообщения</option>
+          <option value="Проспал до обеда">Проспал до обеда</option>
+          <option value="Съел последний кусок пиццы">Съел последний кусок пиццы</option>
         </select>
         <button id="generateBtn" class="btn btn-primary" disabled>Подобрать отмазку</button>
       </div>
@@ -44,6 +52,7 @@
     <footer class="footer">
       <p>© 2026 Генератор отмазок • Все оправдания вымышлены, но вдруг сработают</p>
     </footer>
+    
   </div>
 
   <script src="script.js"></script>
